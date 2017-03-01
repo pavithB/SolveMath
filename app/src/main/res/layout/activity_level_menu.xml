@@ -1,20 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    android:id="@+id/activity_start_menu"
+    android:id="@+id/activity_level_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.pavithbuddhima.solvemath.StartMenu"
+    tools:context="com.pavithbuddhima.solvemath.LevelMenu"
     android:background="#003333">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="#cw _e k a_"
+        android:text="#Select Level"
         android:layout_centerHorizontal="true"
         android:textSize="50dp"
         android:textStyle="bold"
@@ -23,31 +23,31 @@
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="New Game"
+        android:text="novice"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="100dp"
-        android:id="@+id/btnNewGame"/>
+        android:id="@+id/btnNovice" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Continue"
+        android:text="easy"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="190dp"
-        android:id="@+id/btnContinue"/>
+        android:id="@+id/btnEasy"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="About"
+        android:text="medium"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="280dp"
-        android:id="@+id/btnAbout"/>
+        android:id="@+id/btnMedium"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Exit"
+        android:text="guru"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="370dp"
-        android:id="@+id/btnExit"/>
+        android:id="@+id/btnGuru"/>
 
 
 </RelativeLayout>
