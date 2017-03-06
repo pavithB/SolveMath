@@ -8,46 +8,60 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.pavithbuddhima.solvemath.LevelMenu"
-    android:background="#003333">
+    android:background="@drawable/background"
+    tools:context="com.pavithbuddhima.solvemath.LevelMenu">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="#Select Level"
-        android:layout_centerHorizontal="true"
         android:textSize="50dp"
         android:textStyle="bold"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:id="@+id/textView"
+        android:layout_marginTop="67dp"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="novice"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:id="@+id/btnNovice" />
+        android:layout_marginTop="47dp"
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnNovice"
+        android:layout_below="@+id/textView"
+        android:layout_centerHorizontal="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="easy"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="190dp"
-        android:id="@+id/btnEasy"/>
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnEasy"
+        android:layout_below="@+id/btnNovice"
+        android:layout_alignLeft="@+id/btnNovice"
+        android:layout_alignStart="@+id/btnNovice"
+        android:layout_marginTop="33dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="medium"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="280dp"
-        android:id="@+id/btnMedium"/>
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnMedium"
+        android:layout_below="@+id/btnEasy"
+        android:layout_alignLeft="@+id/btnEasy"
+        android:layout_alignStart="@+id/btnEasy"
+        android:layout_marginTop="37dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="guru"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="370dp"
-        android:id="@+id/btnGuru"/>
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnGuru"
+        android:layout_marginBottom="60dp"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnMedium"
+        android:layout_alignStart="@+id/btnMedium" />
 
 
 </RelativeLayout>

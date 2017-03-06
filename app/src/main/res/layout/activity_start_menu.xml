@@ -9,45 +9,59 @@
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="com.pavithbuddhima.solvemath.StartMenu"
-    android:background="#003333">
+    android:background="@drawable/background">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="#cw _e k a_"
-        android:layout_centerHorizontal="true"
         android:textSize="50dp"
         android:textStyle="bold"
-        android:textColor="#ffffff"/>
+        android:textColor="#ffffff"
+        android:id="@+id/textView2"
+        android:layout_alignParentTop="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="40dp" />
 
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="New Game"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="100dp"
-        android:id="@+id/btnNewGame"/>
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnNewGame"
+        android:layout_marginBottom="87dp"
+        android:layout_alignBottom="@+id/btnContinue"
+        android:layout_centerHorizontal="true" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Continue"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="190dp"
-        android:id="@+id/btnContinue"/>
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnContinue"
+        android:layout_alignBottom="@+id/btnAbout"
+        android:layout_alignLeft="@+id/btnNewGame"
+        android:layout_alignStart="@+id/btnNewGame"
+        android:layout_marginBottom="89dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="About"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="280dp"
-        android:id="@+id/btnAbout"/>
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnAbout"
+        android:layout_above="@+id/btnExit"
+        android:layout_alignLeft="@+id/btnContinue"
+        android:layout_alignStart="@+id/btnContinue"
+        android:layout_marginBottom="48dp" />
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Exit"
-        android:layout_centerHorizontal="true"
-        android:layout_marginTop="370dp"
-        android:id="@+id/btnExit"/>
+        android:background="@drawable/levelBtn_background"
+        android:id="@+id/btnExit"
+        android:layout_alignParentBottom="true"
+        android:layout_alignLeft="@+id/btnAbout"
+        android:layout_alignStart="@+id/btnAbout"
+        android:layout_marginBottom="48dp" />
 
 
 </RelativeLayout>
