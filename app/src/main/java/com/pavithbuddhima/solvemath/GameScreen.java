@@ -13,8 +13,9 @@ import java.util.Random;
 
 public class GameScreen extends AppCompatActivity implements View.OnClickListener {
 
-     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnenter, btndel, btnbackspace;
+     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnenter, btndel, btnminus;
     int pair1, pair2, pair3, pair4, pair5;
+    boolean minusValue;
 
     private final int ADD_OPERATOR = 0, SUBTRACT_OPERATOR = 1, MULTIPLY_OPERATOR = 3,
             DIVIDE_OPERATOR = 2;
@@ -25,7 +26,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
      Random random = new Random();
 
 
-    TextView displayQuestion, displayAnswer, displayTime ,displayResult;
+    TextView displayQuestion, displayAnswer, displayTime ,displayResult,debug;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,11 +72,12 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         btn0 = (Button) findViewById(R.id.btn0);
         btnenter = (Button) findViewById(R.id.btnenter);
         btndel = (Button) findViewById(R.id.btndel);
-        btnbackspace = (Button) findViewById(R.id.btnbackspace);
+        btnminus = (Button) findViewById(R.id.btnminus);
         displayAnswer = (TextView) findViewById(R.id.displayanswer);
         displayQuestion = (TextView) findViewById(R.id.displayquestion);
         displayTime = (TextView) findViewById(R.id.displaytime);
         displayResult = (TextView) findViewById(R.id.result);
+        debug = (TextView) findViewById(R.id.debug);
 
 
 
@@ -91,7 +93,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         btn0.setOnClickListener(this);
         btnenter.setOnClickListener(this);
         btndel.setOnClickListener(this);
-        btnbackspace.setOnClickListener(this);
+        btnminus.setOnClickListener(this);
 
         genQuestion();
 
@@ -123,24 +125,36 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                 }
                 break;
 
-            case (R.id.btnbackspace):
-                genQuestion();
+            case (R.id.btnminus):
+                if (displayAnswer.getText().toString().endsWith("?"))
+                    displayAnswer.setText("=- ");
+                minusValue=true;
+
                 break;
 
 
             case (R.id.btnenter):
-
+                    int subString=2;
+                if(minusValue){
+                    subString=3;
+                }
 
                 String answerview = displayAnswer.getText().toString();
                 //check we have an answer
                 if (!answerview.endsWith("?")) {
                     //get number
-                    int userAnswer = Integer.parseInt(answerview.substring(2));
+                    int userAnswer = Integer.parseInt(answerview.substring(subString));
                     //get score
+                    if(minusValue){
+                        userAnswer = userAnswer*-1;
+                        minusValue = false ;
+                    }
 //                    int exScore = getScore();
                     //check answer
                     if (userAnswer == answer) {
-                        displayResult.append(String.valueOf(answer));
+//                        displayResult.append(String.valueOf(answer));
+                        displayResult.setText("Correct");
+                        debug.append(String.valueOf(answer)+" p1- "+String.valueOf(pair1)+" p2- "+String.valueOf(pair2)+" p3- "+String.valueOf(pair3)+" p4- "+String.valueOf(pair4)+" p5- "+String.valueOf(pair5));
 
                         //correct
 //                        scoreTxt.setText("Score: "+(exScore+1));
@@ -148,8 +162,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 //                        response.setVisibility(View.VISIBLE);
 
                     } else {
-//                        displayResult.setText("Incorrect");
-                        displayResult.append(String.valueOf(answer)+""+String.valueOf(pair1)+""+String.valueOf(pair2)+""+String.valueOf(pair3)+""+String.valueOf(pair4));
+                        displayResult.setText("Incorrect");
+                        debug.append(String.valueOf(answer)+" p1- "+String.valueOf(pair1)+" p2- "+String.valueOf(pair2)+" p3- "+String.valueOf(pair3)+" p4- "+String.valueOf(pair4)+" p5- "+String.valueOf(pair5));
                     }
                     //set high score
 //                        setHighScore();
@@ -158,6 +172,13 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 //                        response.setImageResource(R.drawable.cross);
 //                        response.setVisibility(View.VISIBLE);
                 }
+
+                pair1=0;
+                pair2=0;
+                pair3=0;
+                pair4=0;
+                pair5=0;
+                answer=0;
 
                 break;
 
@@ -223,6 +244,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
 //        for(int j=1 ;j<=numOfOprtr ; j++ ){
 
+
         GameScreen calculate = new GameScreen();
         switch (termNum) {
 
@@ -236,14 +258,14 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
             case (3):
                 calculation(1, intList.get(0), intList.get(1), opratorList.get(0));
-                calculation(2, pair1, intList.get(1), opratorList.get(1));
+                calculation(2, pair1, intList.get(2), opratorList.get(1));
                 answer = pair2;
                 break;
 
             case (4):
                 calculation(1, intList.get(0), intList.get(1), opratorList.get(0));
-                calculation(2, pair1, intList.get(1), opratorList.get(1));
-                calculation(3, pair2, intList.get(2), opratorList.get(2));
+                calculation(2, pair1, intList.get(2), opratorList.get(1));
+                calculation(3, pair2, intList.get(3), opratorList.get(2));
                 answer = pair3;
                 break;
 
@@ -267,6 +289,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
 
         }
+
 
 
         for (String genNumbers : displayMath) {
@@ -330,9 +353,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                 pair5 = result;
 //                displayResult.setText("5");
                 break;
-            default:
-//                displayResult.setText("pair");
-                break;
+
 
 
         }
