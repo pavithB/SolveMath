@@ -1,11 +1,13 @@
 package com.pavithbuddhima.solvemath;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.ImageView;
 
 import java.util.ArrayList;
 import java.util.Random;
@@ -14,6 +16,7 @@ import java.util.Random;
 public class GameScreen extends AppCompatActivity implements View.OnClickListener {
 
      Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnenter, btndel, btnminus;
+    ImageView resultImg ;
     int pair1, pair2, pair3, pair4, pair5;
     boolean minusValue , enterSwitch;
 
@@ -27,7 +30,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
      Random random = new Random();
 
 
-    TextView displayQuestion, displayAnswer, displayTime ,displayResult,debug;
+    TextView displayQuestion, displayAnswer, displayTime ,displayResult/*,debug*/;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -78,7 +81,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         displayQuestion = (TextView) findViewById(R.id.displayquestion);
         displayTime = (TextView) findViewById(R.id.displaytime);
         displayResult = (TextView) findViewById(R.id.result);
-        debug = (TextView) findViewById(R.id.debug);
+//        debug = (TextView) findViewById(R.id.debug);
+        resultImg = (ImageView) findViewById(R.id.resultImg) ;
 
 
 
@@ -142,8 +146,9 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                 if(enterSwitch) {
                     displayAnswer.setText("= ?");
                     displayResult.setText("");
-                    debug.setText("");
+//                    debug.setText("");
                     enterSwitch=false;
+                    resultImg.setVisibility(View.INVISIBLE);
                     genQuestion();
 
                 }else{
@@ -171,10 +176,13 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                             }
 //                    int exScore = getScore();
                             //check answer
+                            resultImg.setVisibility(View.VISIBLE);
                             if (userAnswer == answer) {
 //                        displayResult.append(String.valueOf(answer));
                                 displayResult.setText("Correct");
-                                debug.append(String.valueOf(answer) + " p1- " + String.valueOf(pair1) + " p2- " + String.valueOf(pair2) + " p3- " + String.valueOf(pair3) + " p4- " + String.valueOf(pair4) + " p5- " + String.valueOf(pair5));
+                                displayResult.setTextColor(Color.GREEN);
+                                resultImg.setImageResource(R.drawable.correct);
+//                                debug.append(String.valueOf(answer) + " p1- " + String.valueOf(pair1) + " p2- " + String.valueOf(pair2) + " p3- " + String.valueOf(pair3) + " p4- " + String.valueOf(pair4) + " p5- " + String.valueOf(pair5));
 
                                 //correct
 //                        scoreTxt.setText("Score: "+(exScore+1));
@@ -182,8 +190,10 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 //                        response.setVisibility(View.VISIBLE);
 
                             } else {
-                                displayResult.setText("Incorrect");
-                                debug.append(String.valueOf(answer) + " p1- " + String.valueOf(pair1) + " p2- " + String.valueOf(pair2) + " p3- " + String.valueOf(pair3) + " p4- " + String.valueOf(pair4) + " p5- " + String.valueOf(pair5));
+                                displayResult.setText("Wrong");
+                                displayResult.setTextColor(Color.RED);
+                                resultImg.setImageResource(R.drawable.wrong);
+//                                debug.append(String.valueOf(answer) + " p1- " + String.valueOf(pair1) + " p2- " + String.valueOf(pair2) + " p3- " + String.valueOf(pair3) + " p4- " + String.valueOf(pair4) + " p5- " + String.valueOf(pair5));
                             }
                             //set high score
 //                        setHighScore();
