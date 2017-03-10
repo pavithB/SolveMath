@@ -15,7 +15,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
      Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnenter, btndel, btnminus;
     int pair1, pair2, pair3, pair4, pair5;
-    boolean minusValue;
+    boolean minusValue , enterSwitch;
+
 
     private final int ADD_OPERATOR = 0, SUBTRACT_OPERATOR = 1, MULTIPLY_OPERATOR = 3,
             DIVIDE_OPERATOR = 2;
@@ -112,6 +113,9 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                     case "":
 
                         break;
+                    case "=- ":
+                        displayAnswer.setText("= ");
+                        break;
                     default:
                         if ((displayAnswer.getText().toString().endsWith("?")) || (displayAnswer.getText().toString().endsWith("=")) || (displayAnswer.getText().toString().endsWith(" "))) {
 
@@ -126,59 +130,79 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                 break;
 
             case (R.id.btnminus):
-                if (displayAnswer.getText().toString().endsWith("?"))
-                    displayAnswer.setText("=- ");
+                if ((displayAnswer.getText().toString().endsWith("?"))||(displayAnswer.getText().toString().endsWith("="))||(displayAnswer.getText().toString().endsWith(" ")))
+                    displayAnswer.setText("= -");
                 minusValue=true;
 
                 break;
 
 
             case (R.id.btnenter):
-                    int subString=2;
-                if(minusValue){
-                    subString=3;
-                }
 
-                String answerview = displayAnswer.getText().toString();
-                //check we have an answer
-                if (!answerview.endsWith("?")) {
-                    //get number
-                    int userAnswer = Integer.parseInt(answerview.substring(subString));
-                    //get score
-                    if(minusValue){
-                        userAnswer = userAnswer*-1;
-                        minusValue = false ;
-                    }
+                if(enterSwitch) {
+                    displayAnswer.setText("= ?");
+                    displayResult.setText("");
+                    debug.setText("");
+                    enterSwitch=false;
+                    genQuestion();
+
+                }else{
+
+
+
+
+                    if ((displayAnswer.getText().toString().endsWith("-"))||(displayAnswer.getText().toString().endsWith("?"))||(displayAnswer.getText().toString().endsWith(" "))) {
+
+                    } else {
+                        int subString = 2;
+                        if (minusValue) {
+                            subString = 3;
+                        }
+
+                        String answerview = displayAnswer.getText().toString();
+                        //check we have an answer
+                        if (!answerview.endsWith("?")) {
+                            //get number
+                            int userAnswer = Integer.parseInt(answerview.substring(subString));
+                            //get score
+                            if (minusValue) {
+                                userAnswer = userAnswer * -1;
+                                minusValue = false;
+                            }
 //                    int exScore = getScore();
-                    //check answer
-                    if (userAnswer == answer) {
+                            //check answer
+                            if (userAnswer == answer) {
 //                        displayResult.append(String.valueOf(answer));
-                        displayResult.setText("Correct");
-                        debug.append(String.valueOf(answer)+" p1- "+String.valueOf(pair1)+" p2- "+String.valueOf(pair2)+" p3- "+String.valueOf(pair3)+" p4- "+String.valueOf(pair4)+" p5- "+String.valueOf(pair5));
+                                displayResult.setText("Correct");
+                                debug.append(String.valueOf(answer) + " p1- " + String.valueOf(pair1) + " p2- " + String.valueOf(pair2) + " p3- " + String.valueOf(pair3) + " p4- " + String.valueOf(pair4) + " p5- " + String.valueOf(pair5));
 
-                        //correct
+                                //correct
 //                        scoreTxt.setText("Score: "+(exScore+1));
 //                        response.setImageResource(R.drawable.tick);
 //                        response.setVisibility(View.VISIBLE);
 
-                    } else {
-                        displayResult.setText("Incorrect");
-                        debug.append(String.valueOf(answer)+" p1- "+String.valueOf(pair1)+" p2- "+String.valueOf(pair2)+" p3- "+String.valueOf(pair3)+" p4- "+String.valueOf(pair4)+" p5- "+String.valueOf(pair5));
-                    }
-                    //set high score
+                            } else {
+                                displayResult.setText("Incorrect");
+                                debug.append(String.valueOf(answer) + " p1- " + String.valueOf(pair1) + " p2- " + String.valueOf(pair2) + " p3- " + String.valueOf(pair3) + " p4- " + String.valueOf(pair4) + " p5- " + String.valueOf(pair5));
+                            }
+                            //set high score
 //                        setHighScore();
-                    //incorrect
+                            //incorrect
 //                        scoreTxt.setText("Score: 0");
 //                        response.setImageResource(R.drawable.cross);
 //                        response.setVisibility(View.VISIBLE);
-                }
+                        }
 
-                pair1=0;
-                pair2=0;
-                pair3=0;
-                pair4=0;
-                pair5=0;
-                answer=0;
+                        pair1 = 0;
+                        pair2 = 0;
+                        pair3 = 0;
+                        pair4 = 0;
+                        pair5 = 0;
+                        answer = 0;
+
+                        enterSwitch=true;
+                    }
+                }
 
                 break;
 
