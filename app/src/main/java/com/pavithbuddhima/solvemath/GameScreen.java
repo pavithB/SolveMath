@@ -2,6 +2,7 @@ package com.pavithbuddhima.solvemath;
 
 import android.content.Intent;
 import android.graphics.Color;
+import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -15,22 +16,27 @@ import java.util.Random;
 
 public class GameScreen extends AppCompatActivity implements View.OnClickListener {
 
-     Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnenter, btndel, btnminus;
-    ImageView resultImg ;
+    Button btn1, btn2, btn3, btn4, btn5, btn6, btn7, btn8, btn9, btn0, btnenter, btndel, btnminus;
+    ImageView resultImg;
     int pair1, pair2, pair3, pair4, pair5;
-    boolean minusValue , enterSwitch;
+    boolean minusValue, enterSwitch;
 
 
     private final int ADD_OPERATOR = 0, SUBTRACT_OPERATOR = 1, MULTIPLY_OPERATOR = 3,
             DIVIDE_OPERATOR = 2;
 
-     int answer = 0, minTerms = 0, maxTerms = 0;
-     String level;
-     final String[] operators = {"+", "-", "/", "*"};
-     Random random = new Random();
+    int answer = 0, minTerms = 0, maxTerms = 0;
+    String level;
+    final String[] operators = {"+", "-", "/", "*"};
+    Random random = new Random();
 
+    CountDownTimer countDownTimer;
 
-    TextView displayQuestion, displayAnswer, displayTime ,displayResult/*,debug*/;
+    final long startCountdown = 11 * 1000;
+    final long intervalCountdown = 1 * 1000;
+    long timeRemain ;
+
+    TextView displayQuestion, displayAnswer, displayTime, displayResult/*,debug*/;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -82,8 +88,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         displayTime = (TextView) findViewById(R.id.displaytime);
         displayResult = (TextView) findViewById(R.id.result);
 //        debug = (TextView) findViewById(R.id.debug);
-        resultImg = (ImageView) findViewById(R.id.resultImg) ;
-
+        resultImg = (ImageView) findViewById(R.id.resultImg);
 
 
         btn1.setOnClickListener(this);
@@ -100,7 +105,13 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         btndel.setOnClickListener(this);
         btnminus.setOnClickListener(this);
 
+
+//        countDownTimer = new MyCountDownTimer(startCountdown, intervalCountdown);
+//        displayTime.setText("Time left:" + String.valueOf(startCountdown / 1000));
+//        countDownTimer.start();
+
         genQuestion();
+
 
     }
 
@@ -134,31 +145,32 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                 break;
 
             case (R.id.btnminus):
-                if ((displayAnswer.getText().toString().endsWith("?"))||(displayAnswer.getText().toString().endsWith("="))||(displayAnswer.getText().toString().endsWith(" ")))
+                if ((displayAnswer.getText().toString().endsWith("?")) || (displayAnswer.getText().toString().endsWith("=")) || (displayAnswer.getText().toString().endsWith(" ")))
                     displayAnswer.setText("= -");
-                minusValue=true;
+                minusValue = true;
 
                 break;
 
 
             case (R.id.btnenter):
 
-                if(enterSwitch) {
+                if (enterSwitch) {
                     displayAnswer.setText("= ?");
                     displayResult.setText("");
 //                    debug.setText("");
-                    enterSwitch=false;
+                    enterSwitch = false;
                     resultImg.setVisibility(View.INVISIBLE);
                     genQuestion();
 
-                }else{
+                } else {
 
 
-
-
-                    if ((displayAnswer.getText().toString().endsWith("-"))||(displayAnswer.getText().toString().endsWith("?"))||(displayAnswer.getText().toString().endsWith(" "))) {
+                    if ((displayAnswer.getText().toString().endsWith("-")) || (displayAnswer.getText().toString().endsWith("?")) || (displayAnswer.getText().toString().endsWith(" "))) {
 
                     } else {
+
+                        countDownTimer.cancel();
+
                         int subString = 2;
                         if (minusValue) {
                             subString = 3;
@@ -210,7 +222,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                         pair5 = 0;
                         answer = 0;
 
-                        enterSwitch=true;
+                        enterSwitch = true;
                     }
                 }
 
@@ -233,6 +245,10 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
 
     public void genQuestion() {
+
+        countDownTimer = new MyCountDownTimer(startCountdown, intervalCountdown);
+        displayTime.setText("Time left:" + String.valueOf(startCountdown / 1000));
+        countDownTimer.start();
 
         displayQuestion.setText("");
 
@@ -325,7 +341,6 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         }
 
 
-
         for (String genNumbers : displayMath) {
 //            String number = String genNumbers;
 
@@ -340,19 +355,19 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         int result = 0;
         switch (oper) {
             case ADD_OPERATOR:
-                result =  (value1 + value2);
+                result = (value1 + value2);
 //                displayTime.setText("+");
                 break;
             case SUBTRACT_OPERATOR:
-                result =  (value1 - value2);
+                result = (value1 - value2);
 //                displayTime.setText("-");
                 break;
             case DIVIDE_OPERATOR:
-                result =  (value1 / value2);
+                result = (value1 / value2);
 //                displayTime.setText("/");
                 break;
             case MULTIPLY_OPERATOR:
-                result =  (value1 * value2);
+                result = (value1 * value2);
 //                displayTime.setText("*");
                 break;
             default:
@@ -389,9 +404,39 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                 break;
 
 
-
         }
 
 
     }
+
+    public class MyCountDownTimer extends CountDownTimer {
+        public MyCountDownTimer(long startTime, long interval) {
+            super(startTime, interval);
+        }
+
+        @Override
+        public void onFinish() {
+
+            displayTime.setText("Time's up!");
+            genQuestion();
+
+
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+            timeRemain =( millisUntilFinished / 1000 ) ;
+            displayTime.setText("Time Left:" + timeRemain);
+            displayTime.setTextColor(Color.WHITE);
+
+            if ((timeRemain <= 5) && (timeRemain > 3)) {
+//                displayTime.setTextColor(Color.YELLOW);
+                displayTime.setTextColor(Color.rgb(255,153,0));
+            }
+            if (timeRemain <= 3) {
+                displayTime.setTextColor(Color.RED);
+            }
+        }
+    }
+
 }
