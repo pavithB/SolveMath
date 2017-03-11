@@ -3,9 +3,10 @@
     android:dither="true" >
 
     <gradient
-        android:angle="90"
+
+        android:angle="270"
         android:endColor="#292929"
-        android:startColor="#393939" />
+        android:startColor="#111111" />
 
 
 

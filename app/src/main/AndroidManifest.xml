@@ -16,7 +16,11 @@
             </intent-filter>
         </activity>
         <activity android:name=".LevelMenu" />
-        <activity android:name=".GameScreen"></activity>
+        <activity android:name=".GameScreen" />
+
+        <uses-permission android:name="android.permission.VIBRATE" />
+
+        <activity android:name=".Score"></activity>
     </application>
 
 </manifest>

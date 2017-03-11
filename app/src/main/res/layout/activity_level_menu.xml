@@ -14,8 +14,8 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="pick one"
-        android:textSize="50dp"
+        android:text="Choose_Wisely"
+        android:textSize="40dp"
         android:textStyle="bold"
         android:textColor="#ff9900"
         android:id="@+id/textView"
@@ -32,13 +32,8 @@
         android:onClick="gameplay"
         android:layout_below="@+id/textView"
         android:layout_centerHorizontal="true"
-
-
-
-
-
         android:layout_marginTop="70dp"
-        android:textColor="#009999"/>
+        android:textColor="#03A9F4"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -48,7 +43,7 @@
         android:layout_below="@id/btnNovice"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="50dp"
-        android:textColor="#009999"
+        android:textColor="#00BCD4"
         />
 
     <Button
@@ -60,7 +55,7 @@
         android:layout_below="@+id/btnEasy"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:textColor="#009999"/>
+        android:textColor="#009688"/>
     <Button
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -70,7 +65,7 @@
         android:layout_below="@+id/btnMedium"
         android:layout_marginTop="50dp"
         android:layout_centerHorizontal="true"
-        android:textColor="#009999"/>
+        android:textColor="#4CAF50"/>
 
 
 </RelativeLayout>
