@@ -37,21 +37,25 @@ public class LevelMenu extends AppCompatActivity implements  View.OnClickListene
 
             case(R.id.btnNovice):
                 objNewGame.putExtra("level","novice");
+                objNewGame.putExtra("qNo",0);
                 startActivity(objNewGame);
                 break;
 
             case(R.id.btnEasy):
                 objNewGame.putExtra("level","easy");
+                objNewGame.putExtra("qNo",0);
                 startActivity(objNewGame);
                 break;
 
             case(R.id.btnMedium):
                 objNewGame.putExtra("level","medium");
+                objNewGame.putExtra("qNo",0);
                 startActivity(objNewGame);
                 break;
 
             case(R.id.btnGuru):
                 objNewGame.putExtra("level","guru");
+                objNewGame.putExtra("qNo",0);
                 startActivity(objNewGame);
                 break;
 

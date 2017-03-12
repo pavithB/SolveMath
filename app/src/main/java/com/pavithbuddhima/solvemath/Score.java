@@ -17,6 +17,7 @@ public class Score extends AppCompatActivity {
     Button toGame;
     ArrayList<Integer> pointList = new ArrayList<>();
     int quesNo = 0;
+    int totalScore;
 
 
     @Override
@@ -56,20 +57,26 @@ public class Score extends AppCompatActivity {
             quesNo++;
             if (time == 99) {
 //                scoreList.setTextColor(Color.rgb(204, 0, 0));
-                scoreList.append("question " + quesNo + ":   0 points");
+                scoreList.append("question " + quesNo + " points:   0");
                 scoreList.append(" \n");
 
             } else {
                 int tempScore = 0;
 
                 tempScore = (100 / (10 - time));
+                totalScore = totalScore + tempScore;
                 scoreList.setTextColor(Color.rgb(0, 255, 204));
-                scoreList.append("question " + quesNo + ": " + tempScore + " points");
+                scoreList.append("question " + quesNo + " points: " + tempScore);
                 scoreList.append(" \n");
 
             }
 
         }
+        scoreList.append(" \n");
+        scoreList.append("\t\t\t\t\t\t Total points: " + totalScore);
+        totalScore=0;
+
+
 
 
     }

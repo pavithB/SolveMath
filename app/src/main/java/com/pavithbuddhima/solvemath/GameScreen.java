@@ -1,6 +1,8 @@
 package com.pavithbuddhima.solvemath;
 
+import android.content.Context;
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.CountDownTimer;
 import android.support.v7.app.AppCompatActivity;
@@ -44,7 +46,6 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
     final long intervalCountdown = 1 * 1000;
     long timeRemain;
 
-
     TextView displayQuestion, displayAnswer, displayTime, displayResult/*,debug*/, displayHintText, displayHintNo;
 
     @Override
@@ -77,6 +78,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                 break;
 
         }
+        questionNo = gameplay.getIntExtra("qNo",0);
+
 
 
         btn1 = (Button) findViewById(R.id.btn1);
@@ -325,6 +328,41 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
     }
 
 
+
+
+    @Override
+    public void onBackPressed() {
+        SharedPreferences sharedPref = getSharedPreferences("gameinfo", Context.MODE_PRIVATE);
+
+        SharedPreferences.Editor editor = sharedPref.edit();
+
+        editor.putInt("question",questionNo);
+
+
+        editor.putString("level",level);
+
+        editor.apply();
+
+
+        super.onBackPressed();
+        countDownTimer.cancel();
+        editor.apply();
+        Intent backMenu = new Intent(this, StartMenu.class);
+        backMenu.putExtra("level",level);
+        backMenu.putExtra("qNo",questionNo);
+
+        backMenu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(backMenu);
+        finish(); // finish the current activity
+    }
+
+
+
+
+
+
+
+
     public void genQuestion() {
         displayResult.setText("");
 
@@ -337,6 +375,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
             startActivity(score);
 
         } else {
+
+
 
             questionNo++;
 
@@ -543,3 +583,5 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
     }
 
 }
+
+
