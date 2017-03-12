@@ -35,7 +35,7 @@ public class Score extends AppCompatActivity {
 
         calPoint();
 
-
+//continue button function
         toGame.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -52,31 +52,34 @@ public class Score extends AppCompatActivity {
 
     public void calPoint() {
 
+        // get remaining times of each questiona and generate points , and append them
         for (int time : pointList) {
-
+//increment question no
             quesNo++;
+            ///if user unable to answer the question or wroong answer gives 0 points
             if (time == 99) {
 //                scoreList.setTextColor(Color.rgb(204, 0, 0));
                 scoreList.append("question " + quesNo + " points:   0");
                 scoreList.append(" \n");
+                scoreList.append(" \n");
 
             } else {
                 int tempScore = 0;
-
+//if user answer is correct
+                //  calculate the points using remainig time  100/(10-remaining time)
                 tempScore = (100 / (10 - time));
                 totalScore = totalScore + tempScore;
                 scoreList.setTextColor(Color.rgb(0, 255, 204));
-                scoreList.append("question " + quesNo + " points: " + tempScore);
+                scoreList.append("question " + quesNo + " points:   " + tempScore);
+                scoreList.append(" \n");
                 scoreList.append(" \n");
 
             }
 
         }
-        scoreList.append(" \n");
-        scoreList.append("\t\t\t\t\t\t Total points: " + totalScore);
-        totalScore=0;
-
-
+//        scoreList.append(" \n");
+        scoreList.append("\t\t\t Total points: " + totalScore);
+        totalScore = 0;
 
 
     }
@@ -88,6 +91,17 @@ public class Score extends AppCompatActivity {
 ////        startActivity(newGame);
 //
 //    }
+
+
+    @Override
+    public void onBackPressed() {
+        // when click back button clear tasks , and pass the current level and question num
+        super.onBackPressed();
+        Intent backMenu = new Intent(this, StartMenu.class);
+        backMenu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(backMenu);
+        finish(); // finish the current activity
+    }
 
 
 }

@@ -1,79 +1,81 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/activity_start_menu"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/background"
     android:paddingBottom="@dimen/activity_vertical_margin"
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.pavithbuddhima.solvemath.StartMenu"
-    android:background="@drawable/background">
+    tools:context="com.pavithbuddhima.solvemath.StartMenu">
 
     <TextView
+        android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Brain Math!"
-        android:textSize="50dp"
-        android:textColor="#EF5350"
-        android:textStyle="bold|italic"
-        android:id="@+id/textView2"
         android:layout_alignParentTop="true"
         android:layout_centerHorizontal="true"
-        android:layout_marginTop="40dp" />
+        android:layout_marginTop="39dp"
+        android:text="+Brain\\*/Math-"
+        android:textColor="#EF5350"
+        android:textSize="45dp"
+        android:textStyle="bold" />
 
     <Button
-        android:layout_width="150dp"
-        android:layout_height="100dp"
-        android:text="New Game"
-        android:background="#111111"
-        android:textColor="#4CAF50"
         android:id="@+id/btnNewGame"
-        android:textSize="25dp"
-
-        android:layout_marginTop="50dp"
-        android:layout_marginLeft="10dp"
-        android:layout_marginStart="10dp"
-        android:layout_below="@+id/textView2"
-        android:layout_alignParentLeft="true"
-        android:layout_alignParentStart="true" />
-    <Button
         android:layout_width="150dp"
         android:layout_height="100dp"
-        android:text="Continue"
-        android:background="#111111"
-        android:textSize="25dp"
-        android:textColor="#009688"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true"
+        android:layout_below="@+id/textView2"
+        android:layout_marginLeft="10dp"
+
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="50dp"
+        android:background="#4CAF50"
+        android:text="New Game"
+        android:textColor="#000000"
+        android:textSize="25dp" />
+
+    <Button
         android:id="@+id/btnContinue"
-        android:layout_alignTop="@+id/btnNewGame"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
+        android:layout_alignParentEnd="true"
         android:layout_alignParentRight="true"
-        android:layout_alignParentEnd="true" />
+        android:layout_alignTop="@+id/btnNewGame"
+        android:background="#009688"
+        android:text="Continue"
+        android:textColor="#000000"
+        android:textSize="25dp" />
+
     <Button
-        android:layout_width="320dp"
-        android:layout_height="100dp"
-        android:text="About"
-        android:background="#111111"
-        android:textColor="#00BCD4"
-        android:textSize="25dp"
         android:id="@+id/btnAbout"
-        android:layout_below="@+id/btnContinue"
-        android:layout_alignLeft="@+id/btnNewGame"
-        android:layout_marginTop="30dp"
-        />
-    <Button
         android:layout_width="320dp"
         android:layout_height="100dp"
-        android:text="Exit"
-        android:background="#111111"
-        android:textColor="#C62828"
-        android:textSize="25dp"
+        android:layout_alignLeft="@+id/btnNewGame"
+        android:layout_below="@+id/btnContinue"
+        android:layout_marginTop="30dp"
+        android:background="#00BCD4"
+        android:text="About"
+        android:textColor="#000000"
+        android:textSize="25dp" />
+
+    <Button
         android:id="@+id/btnExit"
-        android:layout_below="@+id/btnAbout"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
         android:layout_alignLeft="@+id/btnNewGame"
         android:layout_alignStart="@+id/btnNewGame"
+        android:layout_below="@+id/btnAbout"
         android:layout_marginTop="20dp"
-        />
+        android:background="#111111"
+        android:text="Exit"
+        android:textColor="#C62828"
+        android:textSize="25dp" />
 
 
 </RelativeLayout>

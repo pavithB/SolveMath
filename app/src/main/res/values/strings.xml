@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">SolveMath</string>
+    <string name="app_name">Brain Math</string>
     <string name="about"><u><b><center>is an arithmetic game.</center></b></u>
         \n\nChoose <i>Novice, Easy, Medium or Guru</i> level to begin.
         \n\nAnswer the question by typing on the number pad displayed and pressing <b>"#"</b>.Press the <b>"DEL"</b> button to clear an existing answer.

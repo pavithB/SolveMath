@@ -86,22 +86,24 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
 //if click about
             case R.id.btnAbout:
 
-                about.setText("Brain Math");
-                about.setTextColor(Color.rgb(239, 83, 80));
+//                about.setText("Brain Math");
+//                about.setTextColor(Color.rgb(63,81,181));
 //create pop up window
                 layoutInflater = (LayoutInflater) getApplicationContext().getSystemService(LAYOUT_INFLATER_SERVICE);
                 ViewGroup container = (ViewGroup) layoutInflater.inflate(R.layout.popupabout, null);
 
-                popupAbout = new PopupWindow(container, 1080, 740, true);
-                popupAbout.showAtLocation(relativeLayout, Gravity.CENTER, 0, 610);
+                popupAbout = new PopupWindow(container, 1080, 1250, true);
+                popupAbout.showAtLocation(relativeLayout, Gravity.CENTER, 0, 70);
 
+                Button done = (Button) container.findViewById(R.id.done);
 
-                relativeLayout.setOnClickListener(new View.OnClickListener() {
+                done.setOnClickListener(new View.OnClickListener() {
 
                     @Override
                     public void onClick(View view) {
-                        about.setText("ABOUT");
-                        about.setTextColor(Color.rgb(0, 188, 212));
+                        popupAbout.dismiss();
+//                        about.setText("ABOUT");
+//                        about.setTextColor(Color.rgb(0,0,0));
                     }
                 });
 
@@ -110,7 +112,8 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
 
                     @Override
                     public boolean onTouch(View view, MotionEvent motionEvent) {
-                        //popupAbout.dismiss();
+
+                        popupAbout.dismiss();
 
                         return true;
 
@@ -133,14 +136,14 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
 
 //                        SharedPreferences sp = getSharedPreferences("gameinfo", Context.MODE_PRIVATE);
 // set saved instances to shared preferences
-                        SharedPreferences.Editor editor = sharedPref.edit();
-//set question no
-                        editor.putInt("question", questionNo);
-
-//set level
-                        editor.putString("level", level);
-
-                        editor.apply();
+//                        SharedPreferences.Editor editor = sharedPref.edit();
+////set question no
+//                        editor.putInt("question", questionNo);
+//
+////set level
+//                        editor.putString("level", level);
+//
+//                        editor.apply();
 //kill tasks
                         finish();
                         //exit
@@ -156,14 +159,14 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
 
 //                        SharedPreferences sp = getSharedPreferences("gameinfo", Context.MODE_PRIVATE);
 //if user dont want to save
-                            SharedPreferences.Editor editor = sharedPref.edit();
-
-                            editor.putInt("question", 55);
-
-
-                            editor.putString("level", "");
-
-                            editor.apply();
+//                            SharedPreferences.Editor editor = sharedPref.edit();
+//
+//                            editor.putInt("question", 55);
+//
+//
+//                            editor.putString("level", "");
+//
+//                            editor.apply();
 //kill tasks and exit
                             finish();
                             System.exit(1);
@@ -199,4 +202,14 @@ public class StartMenu extends AppCompatActivity implements View.OnClickListener
         }
 
     }
+
+
+    @Override
+    public void onBackPressed() {
+        // when click back button clear tasks , and pass the current level and question num
+        super.onBackPressed();
+        finish(); // finish the current activity
+        System.exit(0);
+    }
+
 }

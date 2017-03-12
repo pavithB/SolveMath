@@ -31,15 +31,14 @@
         android:layout_centerHorizontal="true"
         android:layout_marginTop="40dp"
         android:background="#03A9F4"
-        android:textSize="25dp"
         android:onClick="gameplay"
         android:text=".novice."
-        android:textColor="#111111" />
+        android:textColor="#111111"
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/btnEasy"
         android:layout_width="320dp"
-        android:textSize="25dp"
         android:layout_height="100dp"
         android:layout_below="@id/btnNovice"
         android:layout_centerHorizontal="true"
@@ -47,32 +46,33 @@
         android:background="#009688"
         android:text="..easy.."
         android:textColor="#111111"
+        android:textSize="25dp"
 
         />
 
     <Button
         android:id="@+id/btnMedium"
         android:layout_width="320dp"
-        android:textSize="25dp"
         android:layout_height="100dp"
         android:layout_below="@+id/btnEasy"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#00BCD4"
         android:text="...medium..."
-        android:textColor="#111111" />
+        android:textColor="#111111"
+        android:textSize="25dp" />
 
     <Button
         android:id="@+id/btnGuru"
         android:layout_width="320dp"
         android:layout_height="100dp"
-        android:textSize="25dp"
         android:layout_below="@+id/btnMedium"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="20dp"
         android:background="#4CAF50"
         android:text="....guru...."
-        android:textColor="#111111" />
+        android:textColor="#111111"
+        android:textSize="25dp" />
 
 
 </RelativeLayout>
