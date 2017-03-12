@@ -14,7 +14,7 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Brain Math"
+        android:text="Brain Math!"
         android:textSize="50dp"
         android:textColor="#EF5350"
         android:textStyle="bold|italic"
@@ -24,48 +24,56 @@
         android:layout_marginTop="40dp" />
 
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:text="New Game"
         android:background="#111111"
         android:textColor="#4CAF50"
         android:id="@+id/btnNewGame"
-        android:layout_marginBottom="87dp"
-        android:layout_alignBottom="@+id/btnContinue"
-        android:layout_centerHorizontal="true" />
+        android:textSize="25dp"
+
+        android:layout_marginTop="50dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginStart="10dp"
+        android:layout_below="@+id/textView2"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentStart="true" />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="100dp"
         android:text="Continue"
         android:background="#111111"
+        android:textSize="25dp"
         android:textColor="#009688"
         android:id="@+id/btnContinue"
-        android:layout_alignBottom="@+id/btnAbout"
-        android:layout_alignLeft="@+id/btnNewGame"
-        android:layout_alignStart="@+id/btnNewGame"
-        android:layout_marginBottom="89dp" />
+        android:layout_alignTop="@+id/btnNewGame"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentEnd="true" />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
         android:text="About"
         android:background="#111111"
         android:textColor="#00BCD4"
+        android:textSize="25dp"
         android:id="@+id/btnAbout"
-        android:layout_above="@+id/btnExit"
-        android:layout_alignLeft="@+id/btnContinue"
-        android:layout_alignStart="@+id/btnContinue"
-        android:layout_marginBottom="48dp" />
+        android:layout_below="@+id/btnContinue"
+        android:layout_alignLeft="@+id/btnNewGame"
+        android:layout_marginTop="30dp"
+        />
     <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="320dp"
+        android:layout_height="100dp"
         android:text="Exit"
         android:background="#111111"
         android:textColor="#C62828"
+        android:textSize="25dp"
         android:id="@+id/btnExit"
-        android:layout_alignParentBottom="true"
-        android:layout_alignLeft="@+id/btnAbout"
-        android:layout_alignStart="@+id/btnAbout"
-        android:layout_marginBottom="48dp" />
+        android:layout_below="@+id/btnAbout"
+        android:layout_alignLeft="@+id/btnNewGame"
+        android:layout_alignStart="@+id/btnNewGame"
+        android:layout_marginTop="20dp"
+        />
 
 
 </RelativeLayout>

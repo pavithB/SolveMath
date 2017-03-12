@@ -25,7 +25,7 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
     ToggleButton hint;
     int pair1, pair2, pair3, pair4, pair5, questionNo;
     boolean minusValue, enterSwitch;
-    int hintNo = 1;
+    int hintNo = 0;
 
     ArrayList<Integer> times = new ArrayList<>();
 
@@ -278,7 +278,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                                     displayResult.setText("Greater");
 //                                    displayResult.setTextAlignment(View.TEXT_ALIGNMENT_CENTER);
                                     displayResult.setGravity(View.TEXT_ALIGNMENT_CENTER);
-                                    resultImg.setVisibility(View.INVISIBLE);
+                                    resultImg.setImageResource(R.drawable.up);
+                                    resultImg.setVisibility(View.VISIBLE);
                                     displayResult.setTextColor(Color.rgb(255,152,0));
                                     displayAnswer.setText("= ?");
 
@@ -289,7 +290,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
                                     hintNo++;
                                     displayHintNo.setText(String.valueOf(4 - hintNo));
                                     displayResult.setTextColor(Color.rgb(255,152,0));
-                                    resultImg.setVisibility(View.INVISIBLE);
+                                    resultImg.setImageResource(R.drawable.down);
+                                    resultImg.setVisibility(View.VISIBLE);
                                     displayResult.setGravity(View.TEXT_ALIGNMENT_CENTER);
                                     displayResult.setText("less");
                                     displayAnswer.setText("= ?");

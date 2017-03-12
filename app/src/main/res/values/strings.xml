@@ -1,5 +1,12 @@
 <resources>
     <string name="app_name">SolveMath</string>
-    <string name="help_info">You Do The Math! is an arithmetic game.\n\nChoose Easy, Medium or Hard level to begin.\n\nAnswer the question by typing on the number pad displayed and pressing enter. Press the C button to clear an existing answer. Each question may be an addition, subtraction, multiplication or division.\n\nYour ten best scores will automatically be saved into the High Scores.</string>
-
+    <string name="about"><u><b><center>is an arithmetic game.</center></b></u>
+        \n\nChoose <i>Novice, Easy, Medium or Guru</i> level to begin.
+        \n\nAnswer the question by typing on the number pad displayed and pressing <b>"#"</b>.Press the <b>"DEL"</b> button to clear an existing answer.
+        \n\nYou can enable <i>Hint</i> by clicking <b>Hint toggle</b> ,if you enable Hint you have <i>four chances</i> to guess the correct answer and
+        \n\If you enter wrong answer ,game will be displaying <b>“greater”</b> (if the your answer is less than the correct answer) and
+        \n\n<b>“less”</b>(if the your answer is greater than the correct answer).
+        \n\nEach question may be an <i>addition(+), subtraction(-), multiplication(*) or division(/)</i>.
+        \n\nAfter <b>ten</b> questions you will be able to see scores you got.
+        \n\n<center><b> (: (: (: (: (: (: (: </b></center></string>
 </resources>
