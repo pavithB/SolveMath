@@ -84,7 +84,9 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         //get queestion numeber
         questionNo = gameplay.getIntExtra("qNo", 0);
 
-        
+        if(questionNo !=0){
+            iscontinue=true;
+        }
 
 
         btn1 = (Button) findViewById(R.id.btn1);
