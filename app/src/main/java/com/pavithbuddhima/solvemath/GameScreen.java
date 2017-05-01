@@ -390,14 +390,16 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 //            Toast.makeText(getBaseContext(),"Question:" + questionNo);
 //add a toast
             Toast.makeText(getBaseContext(), "Question:" + (String.valueOf(questionNo + 1)),
-                    Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_SHORT).show();
 //when genrate random question  increment the question no variable
+
             questionNo++;
 //reset instances
             displayHintText.setVisibility(View.INVISIBLE);
             displayHintNo.setVisibility(View.INVISIBLE);
             resultImg.setVisibility(View.INVISIBLE);
             hint.setChecked(false);
+
 
 // set countdown timer
             countDownTimer = new MyCountDownTimer(startCountdown, intervalCountdown);
@@ -600,10 +602,26 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
             displayTime.setText("Time's up!");
 
             Toast.makeText(getBaseContext(), ("Time's up!"),
-                    Toast.LENGTH_LONG).show();
+                    Toast.LENGTH_SHORT).show();
 
             times.add(99);
             genQuestion();
+
+
+
+            /*final Toast toast = Toast.makeText(getApplicationContext(), "This message will disappear     in half second", Toast.LENGTH_SHORT);
+    toast.show();
+
+    Handler handler = new Handler();
+        handler.postDelayed(new Runnable() {
+           @Override
+           public void run() {
+               toast.cancel();
+           }
+    }, 500);*/
+
+
+
 
         }
 
