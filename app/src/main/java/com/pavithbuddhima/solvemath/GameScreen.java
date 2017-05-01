@@ -29,6 +29,9 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
     boolean minusValue, enterSwitch;
     int hintNo = 0;
 
+    boolean iscontinue= false;
+
+
     ArrayList<Integer> times = new ArrayList<>();
 
 
@@ -80,6 +83,8 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         }
         //get queestion numeber
         questionNo = gameplay.getIntExtra("qNo", 0);
+
+        
 
 
         btn1 = (Button) findViewById(R.id.btn1);
