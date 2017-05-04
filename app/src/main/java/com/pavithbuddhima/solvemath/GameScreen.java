@@ -394,13 +394,31 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
         } else {
 
+            if(iscontinue) {
+
+
+
+
+
+            }else{
+
+                //when genrate random question  increment the question no variable
+
+                questionNo++;
+
+
+
+
+            }
+
+
+
+
 //            Toast.makeText(getBaseContext(),"Question:" + questionNo);
 //add a toast
             Toast.makeText(getBaseContext(), "Question:" + (String.valueOf(questionNo + 1)),
                     Toast.LENGTH_SHORT).show();
-//when genrate random question  increment the question no variable
 
-            questionNo++;
 //reset instances
             displayHintText.setVisibility(View.INVISIBLE);
             displayHintNo.setVisibility(View.INVISIBLE);
