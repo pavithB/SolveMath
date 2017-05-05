@@ -396,18 +396,6 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
 
 
-        /**
-         *     //to store generated numbers
-         ArrayList<Integer> intList = new ArrayList<>();
-         //            to save randomly  generated operators
-         ArrayList<Integer> opratorList = new ArrayList<>();
-         //            to  display the expression this array contain the arithmatic expression both integer and operators
-         ArrayList<String> displayMath = new ArrayList<>();
-
-
-         //store nmber of numers
-         int termNum ;
-         */
 
 
 
