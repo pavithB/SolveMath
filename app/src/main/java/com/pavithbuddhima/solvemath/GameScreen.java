@@ -387,6 +387,30 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
         Intent backMenu = new Intent(this, StartMenu.class);
         backMenu.putExtra("level", level);
         backMenu.putExtra("qNo", questionNo);
+        backMenu.putExtra("intList", intList);
+        backMenu.putExtra("opratorList", opratorList);
+        backMenu.putExtra("displayMath", displayMath);
+        backMenu.putExtra("termNum", termNum);
+
+
+
+
+
+        /**
+         *     //to store generated numbers
+         ArrayList<Integer> intList = new ArrayList<>();
+         //            to save randomly  generated operators
+         ArrayList<Integer> opratorList = new ArrayList<>();
+         //            to  display the expression this array contain the arithmatic expression both integer and operators
+         ArrayList<String> displayMath = new ArrayList<>();
+
+
+         //store nmber of numers
+         int termNum ;
+         */
+
+
+
         //pass two values too level and question no
 
         backMenu.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
@@ -409,7 +433,22 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
         } else {
 
+//reset instances
+            displayHintText.setVisibility(View.INVISIBLE);
+            displayHintNo.setVisibility(View.INVISIBLE);
+            resultImg.setVisibility(View.INVISIBLE);
+            hint.setChecked(false);
 
+
+
+
+            // set countdown timer
+            countDownTimer = new MyCountDownTimer(startCountdown, intervalCountdown);
+            displayTime.setText("Time left:" + String.valueOf(startCountdown / 1000));
+            countDownTimer.start();
+
+            displayQuestion.setText("");
+            displayAnswer.setText("= ?");
 
 
 
@@ -469,20 +508,10 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
             Toast.makeText(getBaseContext(), "Question:" + (String.valueOf(questionNo + 1)),
                     Toast.LENGTH_SHORT).show();
 
-//reset instances
-            displayHintText.setVisibility(View.INVISIBLE);
-            displayHintNo.setVisibility(View.INVISIBLE);
-            resultImg.setVisibility(View.INVISIBLE);
-            hint.setChecked(false);
 
 
-// set countdown timer
-            countDownTimer = new MyCountDownTimer(startCountdown, intervalCountdown);
-            displayTime.setText("Time left:" + String.valueOf(startCountdown / 1000));
-            countDownTimer.start();
 
-            displayQuestion.setText("");
-            displayAnswer.setText("= ?");
+
 
 
 
