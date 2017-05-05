@@ -32,6 +32,21 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
     boolean iscontinue= false;
 
 
+
+    //to store generated numbers
+    ArrayList<Integer> intList = new ArrayList<>();
+    //            to save randomly  generated operators
+    ArrayList<Integer> opratorList = new ArrayList<>();
+    //            to  display the expression this array contain the arithmatic expression both integer and operators
+    ArrayList<String> displayMath = new ArrayList<>();
+
+
+    //store nmber of numers
+    int termNum ;
+
+
+
+
     ArrayList<Integer> times = new ArrayList<>();
 
 
@@ -394,11 +409,22 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
         } else {
 
+
+
+
+
             if(iscontinue) {
 
 
+                /**
+                 * this nee to replce with continuee term (previously generated term)
+                 */
+                termNum = 0 ;
 
 
+
+
+                iscontinue = false ;
 
             }else{
 
@@ -406,7 +432,31 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
 
                 questionNo++;
 
+//genrate numers
+                termNum = random.nextInt((maxTerms + 1) - minTerms) + minTerms;
 
+                for (int i = 1; i <= termNum; i++) {
+//generate random no between 1 and 50
+                    int randomInt = random.nextInt(50 - 1) + 1;
+//            int randomInt = i;
+//add to arrays
+                    intList.add(randomInt);
+                    displayMath.add(String.valueOf(randomInt));
+//generate operators in in between two numbers
+                    if (i != termNum) {
+//generate operators between numbers
+                        int rndOp = new Random().nextInt(operators.length);
+
+                        opratorList.add(rndOp);
+
+//                String genoprt = Character.toString(operators[rnd]);
+
+                        displayMath.add(operators[rndOp]);
+
+                    }
+//            intList.add(0);
+
+                }
 
 
             }
@@ -434,37 +484,10 @@ public class GameScreen extends AppCompatActivity implements View.OnClickListene
             displayQuestion.setText("");
             displayAnswer.setText("= ?");
 
-//genrate numers
-            int termNum = random.nextInt((maxTerms + 1) - minTerms) + minTerms;
-//to store generated numbers
-            ArrayList<Integer> intList = new ArrayList<>();
-//            to save randomly  generated operators
-            ArrayList<Integer> opratorList = new ArrayList<>();
-//            to  display the expression this array contain the arithmatic expression both integer and operators
-            ArrayList<String> displayMath = new ArrayList<>();
 
-            for (int i = 1; i <= termNum; i++) {
-//generate random no between 1 and 50
-                int randomInt = random.nextInt(50 - 1) + 1;
-//            int randomInt = i;
-//add to arrays
-                intList.add(randomInt);
-                displayMath.add(String.valueOf(randomInt));
-//generate operators in in between two numbers
-                if (i != termNum) {
-//generate operators between numbers
-                    int rndOp = new Random().nextInt(operators.length);
 
-                    opratorList.add(rndOp);
 
-//                String genoprt = Character.toString(operators[rnd]);
 
-                    displayMath.add(operators[rndOp]);
-
-                }
-//            intList.add(0);
-
-            }
 
 
             //generate random index and get and laod to array that contain operators. (operators = termNum - 1)
