@@ -68,11 +68,8 @@ The application will be a basic brain training game, which will be asking the us
   in Figure 2. Pressing the # button again, presents the user with the next arithmetic expression, until the user completes the 
   full cycle of guessing 10 arithmetic expressions. 
   
-  <p align="left">
-  <img src="https://cloud.githubusercontent.com/assets/23357240/26764094/c295607e-497d-11e7-8c13-1e736244c18c.png" width="350"/>
-</p>
-  <p align="right">
-  <img src="https://cloud.githubusercontent.com/assets/23357240/26764096/c9b0a2c4-497d-11e7-9db6-1a230d6ec4a2.png" width="350"/>
+  <p >
+  <img align="left" src="https://cloud.githubusercontent.com/assets/23357240/26764094/c295607e-497d-11e7-8c13-1e736244c18c.png" width="350"/> <img align="right" src="https://cloud.githubusercontent.com/assets/23357240/26764096/c9b0a2c4-497d-11e7-9db6-1a230d6ec4a2.png" width="350"/>
 </p>
   
 8. Extend the implementation so that the user can switch on hints from a preference menu. If the hints option is “on” then 
@@ -81,11 +78,8 @@ The application will be a basic brain training game, which will be asking the us
   be displaying “greater” (if the user’s answer is less than the correct answer) and “less” (if the user’s answer is greater than
   the correct answer). 
   
-  <p align="left">
-  <img src="https://cloud.githubusercontent.com/assets/23357240/26764100/ebdc9f56-497d-11e7-9419-320adbfa51c7.png" width="350"/>
-</p>
-  <p align="right">
-  <img src="https://cloud.githubusercontent.com/assets/23357240/26764101/eeece55c-497d-11e7-851f-d995e7b4f414.png" width="350"/>
+  <p >
+  <img align="left" src="https://cloud.githubusercontent.com/assets/23357240/26764100/ebdc9f56-497d-11e7-9419-320adbfa51c7.png" width="350"/> <img align="right" src="https://cloud.githubusercontent.com/assets/23357240/26764101/eeece55c-497d-11e7-851f-d995e7b4f414.png" width="350"/>
 </p>
   
 9. Extend the application by providing a countdown timer, counting from 10 down to 1, every tick occurring after 1 second exactly.
