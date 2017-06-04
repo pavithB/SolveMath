@@ -2,8 +2,8 @@
 <br/>
 <br/>
 
-<h5 align="center">
-The application will be a basic brain training game, which will be asking the user to calculate the answer to various simple arithmetic expressions. [mobile game (#android) is about solving math problemst, Players able to choose difficulty level. </h5>
+<h3 align="center">
+The application will be a basic brain training game, which will be asking the user to calculate the answer to various simple arithmetic expressions. [mobile game (#android) is about solving math problemst, Players able to choose difficulty level. </h3>
 
 <p align="center">
 1. When the application starts, it presents the user 4 buttons labelled New Game, Continue, About and Exit.
@@ -74,10 +74,11 @@ The application will be a basic brain training game, which will be asking the us
   in Figure 2. Pressing the # button again, presents the user with the next arithmetic expression, until the user completes the 
   full cycle of guessing 10 arithmetic expressions. 
   </p>
-  
+    <br/>
   <p >
   <img align="left" src="https://cloud.githubusercontent.com/assets/23357240/26764094/c295607e-497d-11e7-8c13-1e736244c18c.png" width="350"/> <img align="right" src="https://cloud.githubusercontent.com/assets/23357240/26764096/c9b0a2c4-497d-11e7-9db6-1a230d6ec4a2.png" width="350"/>
 </p>
+  <br/>
  <p align="center">
 8. Extend the implementation so that the user can switch on hints from a preference menu. If the hints option is “on” then 
   he/she will be given 4 attempts per question (arithmetic expression), in case his ﬁrst, second and third attempts to answer 
@@ -85,10 +86,11 @@ The application will be a basic brain training game, which will be asking the us
   be displaying “greater” (if the user’s answer is less than the correct answer) and “less” (if the user’s answer is greater than
   the correct answer). 
   </p>
-  
+  <br/>
   <p >
   <img align="left" src="https://cloud.githubusercontent.com/assets/23357240/26764100/ebdc9f56-497d-11e7-9419-320adbfa51c7.png" width="350"/> <img align="right" src="https://cloud.githubusercontent.com/assets/23357240/26764101/eeece55c-497d-11e7-851f-d995e7b4f414.png" width="350"/>
 </p>
+  <br/>
   <p align="center">
 9. Extend the application by providing a countdown timer, counting from 10 down to 1, every tick occurring after 1 second exactly.
   The countdown timer is displayed in the main screen of the game, as shown in Figure 3. As soon as the counter reaches the value of 0,
