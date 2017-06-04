@@ -75,7 +75,7 @@ The application will be a basic brain training game, which will be asking the us
   full cycle of guessing 10 arithmetic expressions. 
   </p>
     <br/>
-  <p >
+<p align="center">
   <img align="left" src="https://cloud.githubusercontent.com/assets/23357240/26764094/c295607e-497d-11e7-8c13-1e736244c18c.png" width="350"/> <img align="right" src="https://cloud.githubusercontent.com/assets/23357240/26764096/c9b0a2c4-497d-11e7-9db6-1a230d6ec4a2.png" width="350"/>
 </p>
   <br/>
@@ -87,7 +87,7 @@ The application will be a basic brain training game, which will be asking the us
   the correct answer). 
   </p>
   <br/>
-  <p >
+<p align="center">
   <img align="left" src="https://cloud.githubusercontent.com/assets/23357240/26764100/ebdc9f56-497d-11e7-9419-320adbfa51c7.png" width="350"/> <img align="right" src="https://cloud.githubusercontent.com/assets/23357240/26764101/eeece55c-497d-11e7-851f-d995e7b4f414.png" width="350"/>
 </p>
   <br/>
